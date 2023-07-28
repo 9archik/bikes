@@ -1,20 +1,3 @@
-body {
-  display: flex;
-  justify-content: center;
-  font-family: "Inter";
-}
 
-.wrapper {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-image: url("./Start\ screen.jpg"); */
-  max-width: 343px;
-}
 
-.wrapper-inner {
 
-  /* background-color: #db0c0c1a; */
-}
