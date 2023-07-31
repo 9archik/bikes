@@ -1,10 +1,17 @@
+import { useNavigate } from 'react-router-dom'
 
+import { Footer } from '../footer/Footer'
+
+import s from './Main.module.scss'
 
 export const Main = () => {
-    return (
-        <section>
-            asfasf  2143124214
+    const navigate = useNavigate()
 
-        </section>
+    return (
+        <div className={s.wrapper} onClick={() => navigate("/")}>
+            sad
+
+            <Footer />
+        </div>
     )
 }

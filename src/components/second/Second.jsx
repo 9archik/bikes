@@ -8,7 +8,7 @@ import arrow from './../../static/images/arrow.png'
 export const Second = () => {
     const navigate = useNavigate()
     return (
-        <div className={s.wrapper} onClick={() => navigate("/")}>
+        <div className={s.wrapper} onClick={() => navigate("/main")}>
             <div className={s.title}>
                 <p>Выберите язык</p>
                 <p>Select language</p>

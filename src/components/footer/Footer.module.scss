@@ -1,0 +1,80 @@
+.wrapper {
+    width: 100%;
+    max-width: 500px;
+    height: 49px;
+    background-color: rgb(234, 255, 0);
+    margin: auto;
+
+    box-sizing: border-box;
+}
+
+.wisible_part {
+    position: fixed;
+    bottom: 0px;
+
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    height: 49px;
+
+    // background-color: rgba(0, 128, 0, 0.118);
+
+    padding: 0 23px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .menu_item {
+        width: 75px;
+        height: 49px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 1px;
+        color: #B7B7B7;
+        stroke: #B7B7B7;
+        
+        .image {
+            height: 28px;
+            width: 28px;
+            margin-bottom: -3px;
+        }
+
+        .title {
+            text-align: center;
+            font-family: "Inter";
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: -0.24px;
+        }
+    }
+
+    .menu_item_active {
+        width: 75px;
+        height: 49px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 1px;
+        color: #202020;
+        stroke: #202020;
+        
+        .image {
+            height: 28px;
+            width: 28px;
+            margin-bottom: -3px;
+        }
+
+        .title {
+            text-align: center;
+            font-family: "Inter";
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: -0.24px;
+        }
+    }
+}
