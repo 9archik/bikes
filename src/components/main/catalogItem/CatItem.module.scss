@@ -29,18 +29,17 @@
         align-items: center;
         justify-content: center;
 
-        &:last-child {
-        }
     }
 
 }
 
 .bikes_swaiper {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     position: absolute;
     align-self: flex-end;
     margin: 0 8px 8px 6px;
+    width: 100%;
 
     div {
         border-radius: 8px;

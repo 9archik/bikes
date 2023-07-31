@@ -9,7 +9,7 @@ export const Main = () => {
     const navigate = useNavigate()
 
     return (
-        <div className={s.wrapper} onClick={() => navigate("/")}>
+        <div className={s.wrapper} onClick={() => navigate("/catalog")}>
             <div className={s.title}>Выберите тип скутера</div>
             <div className={s.items}>
                 <CatItem />
