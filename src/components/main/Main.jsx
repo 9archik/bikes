@@ -10,7 +10,12 @@ export const Main = () => {
 
     return (
         <div className={s.wrapper} onClick={() => navigate("/")}>
+            <div className={s.title}>Выберите тип скутера</div>
             <div className={s.items}>
+                <CatItem />
+                <CatItem />
+                <CatItem />
+                <CatItem />
                 <CatItem />
             </div>
 

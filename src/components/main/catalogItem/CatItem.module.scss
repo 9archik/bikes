@@ -1,7 +1,7 @@
 .wrapper {
     width: 100%;
     max-width: 500px;
-    // margin: 0 12px;
+    margin-top: 16px;
     background-color: rgb(255, 255, 255);
     padding: 12px;
     border-radius: 10px;
@@ -12,10 +12,60 @@
     align-items: center;
 }
 
+.arrows {
+    position:absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 48px);
+    padding: 0 8px;
+    box-sizing: border-box;
+
+    .arrow {
+        width: 32px;
+        height: 32px;
+        background-color: rgba(0, 0, 0, 0.40);
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:last-child {
+        }
+    }
+
+}
+
+.bikes_swaiper {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-self: flex-end;
+    margin: 0 8px 8px 6px;
+
+    div {
+        border-radius: 8px;
+        border: 1px solid rgba(231, 231, 231, 0.20);
+        background: rgba(255, 255, 255, 0.20);
+        backdrop-filter: blur(4px);
+        padding: 5px 8px;
+        margin: 0 3px 0 2px;
+
+        color: white;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px; 
+    }
+
+    .active {
+        border: 1px solid white;
+        font-weight: 500;
+    }
+}
 
 .image {
     width: 100%;
-    
+    display: flex;
+    align-items: center;
 
     img {
         width: 100%;
@@ -48,3 +98,76 @@
 }
 
 
+.characteristics {
+    width: 100%;
+    margin-top: 12px;
+
+    span {
+        color: #202020;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 18px;
+
+        .value {
+            font-weight: 400;
+        }
+    }
+
+    svg {
+        margin-right: 4px;
+
+    }
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+
+        .topblock {
+            width: 49%;
+            stroke: #202020;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            box-sizing: border-box;
+
+            border-radius: 10px;
+            background-color: #F6F6F6;
+
+            svg {
+                margin-right: 4px;
+                height: 17px;
+                width: 17px;
+            }
+
+
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+        .bottom1block {
+            width: calc(30% - 4.5px);
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            box-sizing: border-box;
+
+            border-radius: 10px;
+            background-color: #F6F6F6;
+        }
+
+        .bottom2block {
+            width: calc(70% - 4.5px);
+            stroke: #202020;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            box-sizing: border-box;
+
+            border-radius: 10px;
+            background-color: #F6F6F6;
+        }
+    }
+}
