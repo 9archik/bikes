@@ -8,7 +8,7 @@ const navigate = useNavigate()
 
     return (
         <>
-        <div className={s.head_title}>
+        <div className={s.head_title} onClick={() => navigate("/main")}>
             <div className={s.header_absolute}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M21 12H3M3 12L9.75 5M3 12L9.75 19" stroke="#202020" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -19,7 +19,7 @@ const navigate = useNavigate()
         </div>
 
 
-        <div className={s.wrapper} onClick={() => navigate("/main")}>
+        <div className={s.wrapper} onClick={() => navigate("/")}>
             
             <div className={s.wrapper_inner}>
                 <div className={s.image}>
