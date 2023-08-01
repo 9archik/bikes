@@ -4,7 +4,8 @@ import scoopy from './../../static/images/bikes/scoopy.png'
 import { useNavigate } from 'react-router-dom'
 
 export const Catalog = () => {
-const navigate = useNavigate()
+    const navigate = useNavigate()
+    console.log(scoopy.height)
 
     return (
         <>
@@ -23,6 +24,7 @@ const navigate = useNavigate()
             
             <div className={s.wrapper_inner}>
                 <div className={s.image}>
+
                     <div className={s.arrows}>
                         <div className={s.arrow}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -41,6 +43,8 @@ const navigate = useNavigate()
                         <div className={s.active}>Fazzio</div>
                         <div>Lexi</div>
                     </div>
+
+
                     <img src={scoopy} alt="Bike" />
                 </div>
                 <div className={s.image_attention}>

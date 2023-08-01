@@ -1,8 +1,6 @@
 .wrapper {
     width: 100%;
-    // max-width: 500px;
     height: 49px;
-    // background-color: rgb(234, 255, 0);
     margin: auto;
     margin-top: 16px;
     box-sizing: border-box;
@@ -11,11 +9,11 @@
 .wisible_part {
     position: fixed;
     bottom: 0px;
-    left: 0;
+    // left: 0;
 
     width: 100%;
-    // max-width: 500px;
-    margin: auto;
+    max-width: 500px;
+    margin: 0 auto;
     height: 49px;
 
     background-color: rgb(255, 255, 255);
