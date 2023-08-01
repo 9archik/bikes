@@ -119,7 +119,7 @@
 
     span {
         color: #202020;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 500;
         line-height: 18px;
 
@@ -187,10 +187,96 @@
     }
 }
 
-@media screen and (max-width: 385px){
+@media screen and (max-width: 335px){
     .characteristics {
         span {
             font-size: 10px;
+        }
+
+        .top {
+            .topblock {
+                span {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 405px){
+    .characteristics {
+
+        .top {
+            .topblock {
+                span {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 376px){
+    .characteristics {
+        span {
+            font-size: 13px;
+        }
+        .top {
+            .topblock {
+                span {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 366px){
+    .characteristics {
+        span {
+            font-size: 11px;
+        }
+        .top {
+            .topblock {
+                span {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 327px){
+    .characteristics {
+        span {
+            font-size: 9px;
+        }
+        .top {
+            .topblock {
+                span {
+                    font-size: 9px;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 297px){
+    .characteristics {
+        span {
+            font-size: 9px;
+        }
+        .top {
+            .topblock {
+                span {
+                    font-size: 8px;
+                }
+            }
         }
     }
 
