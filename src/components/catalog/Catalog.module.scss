@@ -81,7 +81,7 @@
 
     padding: 0 8px;
     box-sizing: border-box;
-    z-index: 400;
+    z-index: 1;
 
     .arrow {
         width: 32px;
@@ -342,6 +342,7 @@
         bottom: 0px;
         margin: 0 auto;
         background-color: #FFF;
+        z-index: 1000;
         div {
             width: 100%;
             height: 51px;

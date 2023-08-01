@@ -6,22 +6,22 @@ import { First } from './components/first/First';
 import { Second } from './components/second/Second';
 import { Main } from './components/main/Main';
 import { Catalog } from './components/catalog/Catalog';
-
-
+import { Wait } from './components/wait/Wait';
+import { About } from './components/about/About';
+import { Support } from './components/support/Support';
 
 
 function App() {
   return (
-    // <div class="wrapper-inner">
     <Routes>
       <Route path="/" element={<First />} />
       <Route path="/second" element={<Second />} />
       <Route path="/main" element={<Main />} />
       <Route path="/catalog" element={<Catalog />} />
-      {/* <Route path="/myorder" element={<div>a</div>} />
-      <Route path="*" element={<div>aasdasdasdasd</div>} /> */}
+      <Route path="/wait" element={<Wait />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/support" element={<Support />} />
     </Routes>
-    // </div>
   );
 }
 

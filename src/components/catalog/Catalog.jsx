@@ -20,7 +20,7 @@ export const Catalog = () => {
         </div>
 
 
-        <div className={s.wrapper} onClick={() => navigate("/")}>
+        <div className={s.wrapper} onClick={() => navigate("/wait")}>
             
             <div className={s.wrapper_inner}>
                 <div className={s.image}>
