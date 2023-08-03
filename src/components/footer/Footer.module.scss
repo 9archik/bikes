@@ -12,7 +12,7 @@
     // left: 0;
 
     width: 100%;
-    // max-width: 500px;
+    max-width: 500px;
     margin: 0 auto;
     height: 49px;
 
@@ -24,6 +24,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    z-index: 1000;
 
     .menu_item {
         width: 75px;

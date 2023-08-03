@@ -1,46 +1,70 @@
-
+import { useState } from 'react'
 
 import s from './CatItem.module.scss'
 
 import scoopy from './../../../static/images/bikes/scoopy.png'
+import vario from './../../../static/images/bikes/vario.png'
+import fazzio from './../../../static/images/bikes/fazzio.png'
+import lexi from './../../../static/images/bikes/lexi.png'
 
-export const CatItem = () => {
+export const CatItem = ({dataset}) => {
+    const [num, setNum] = useState(0)
 
+    function increment(number) {
+        if (number == dataset.length - 1) {
+            number = 0
+            return number
+        } else {
+            return number + 1
+        }
+    }
+
+
+    function decrement(number) {
+        if (number == 0) {
+            number = dataset.length - 1
+            return number
+        } else {
+            return number - 1
+        }
+    }
+
+    console.log(dataset)
     return (
         <div className={s.wrapper}>
             <div className={s.image}>
                 <div className={s.arrows}>
-                    <div className={s.arrow}>
+                    <div className={s.arrow} onClick={() => setNum(decrement(num))}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M12.4446 14.8886L7.55569 9.99973L12.4446 5.11084" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12.4446 14.8886L7.55569 9.99973L12.4446 5.11084" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>          
                     </div>
-                    <div className={s.arrow}>
+                    <div className={s.arrow} onClick={() => setNum(increment(num))}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
-                            <path d="M7.97925 16.0413L13.0209 10.9997L7.97925 5.95801" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.97925 16.0413L13.0209 10.9997L7.97925 5.95801" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>        
                     </div>
                 </div>
                 <div className={s.bikes_swaiper}>
-                    <div>Scoopy</div>
-                    <div>Vario</div>
-                    <div className={s.active}>Fazzio</div>
-                    <div>Lexi</div>
+                    {/* <div>Scoopy</div> */}
+                    {/* <div>Vario</div> */}
+                    <div className={s.active}>{dataset[num].name}</div>
+                    {/* <div>Lexi</div> */}
                 </div>
-                <img src={scoopy} alt="Bike" />
+                <img src={dataset[num].img} alt="Bike" />
             </div>
 
             <div className={s.info}>
                 <div className={s.title_price}>
                     <span>Мини скутеры</span>
-                    <span>от 3$</span>
+                    <span>от {dataset[num].price}$</span>
                 </div>
                 <div className={s.subtitle}>
                     <span>Для девушек / одиночных поездок</span>
                 </div>
             </div>
 
-            <div className={s.characteristics}>
+            {/* <div className={s.characteristics}>
 
                 <div className={s.top}>
                     <div className={s.topblock}>
@@ -78,7 +102,7 @@ export const CatItem = () => {
                         <span>Бесключевой доступ: <span className={s.value}>есть</span></span>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
