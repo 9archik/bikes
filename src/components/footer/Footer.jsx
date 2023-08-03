@@ -1,11 +1,17 @@
+import { useNavigate, useLocation } from 'react-router-dom'
+
 import s from './Footer.module.scss'
 
 export const Footer = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+
     return (
         <div className={s.wrapper}>
             <div className={s.wisible_part}>
 
-                <div className={s.menu_item}>
+                <div className={location.pathname == "/main" ? s.menu_item_active : s.menu_item} onClick={()=> navigate("/main")}>
                     <div className={s.image}>
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M27 19.2C27 17.0461 25.2539 15.3 23.1 15.3C20.946 15.3 19.2 17.0461 19.2 19.2C19.2 21.3539 20.946 23.1 23.1 23.1C25.2539 23.1 27 21.3539 27 19.2Z"  stroke-width="1.5"/>
@@ -18,7 +24,7 @@ export const Footer = () => {
                     <p className={s.title}>Каталог</p>
                 </div>
 
-                <div className={s.menu_item}>
+                <div className={location.pathname == "/about" ? s.menu_item_active : s.menu_item} onClick={()=> navigate("/about")}>
                     <div className={s.image}>
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14 12V18" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -27,10 +33,10 @@ export const Footer = () => {
                         </svg>
                     </div>
 
-                    <p className={s.title}>Каталог</p>
+                    <p className={s.title}>О сервисе</p>
                 </div>
 
-                <div className={s.menu_item_active}>
+                <div className={location.pathname == "/support" ? s.menu_item_active : s.menu_item} onClick={()=> navigate("/support")}>
                     <div className={s.image}>
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20.9231 17.8462H22.4615C22.8696 17.8462 23.2609 17.6841 23.5494 17.3956C23.8379 17.107 24 16.7157 24 16.3077V14C24 13.592 23.8379 13.2007 23.5494 12.9122C23.2609 12.6236 22.8696 12.4615 22.4615 12.4615H20.9231C20.7191 12.4615 20.5234 12.5426 20.3791 12.6869C20.2349 12.8311 20.1538 13.0268 20.1538 13.2308V17.0769C20.1538 17.2809 20.2349 17.4766 20.3791 17.6209C20.5234 17.7651 20.7191 17.8462 20.9231 17.8462ZM20.9231 17.8462V19C20.9231 19.8161 20.5989 20.5987 20.0219 21.1757C19.4448 21.7528 18.6622 22.0769 17.8462 22.0769M5.53846 12.4615H7.07692C7.28094 12.4615 7.47659 12.5426 7.62085 12.6869C7.76511 12.8311 7.84615 13.0268 7.84615 13.2308V17.0769C7.84615 17.2809 7.76511 17.4766 7.62085 17.6209C7.47659 17.7651 7.28094 17.8462 7.07692 17.8462H5.53846C5.13044 17.8462 4.73912 17.6841 4.4506 17.3956C4.16209 17.107 4 16.7157 4 16.3077V14C4 13.592 4.16209 13.2007 4.4506 12.9122C4.73912 12.6236 5.13044 12.4615 5.53846 12.4615Z" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -39,7 +45,7 @@ export const Footer = () => {
 
                     </div>
 
-                    <p className={s.title}>Каталог</p>
+                    <p className={s.title}>Поддержка</p>
                 </div>
             </div>
         </div>

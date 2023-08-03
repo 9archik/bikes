@@ -29,7 +29,7 @@ export const CatItem = ({dataset}) => {
         }
     }
 
-    console.log(dataset)
+    // console.log(dataset)
     return (
         <div className={s.wrapper}>
             <div className={s.image}>
