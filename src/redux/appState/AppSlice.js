@@ -2,7 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState = {
-    language: "ru"
+    language: "ru",
+
+    selected_category: "mini",
+
+    bikeState: {
+      name: "",
+
+    }
 }
 
 export const appSlice = createSlice({
@@ -12,14 +19,14 @@ export const appSlice = createSlice({
     setLanguage: (state, action) => {
         state.language = action.payload
     },
+    setCategory: (state, action) => {
+      state.selected_category = action.payload
+      console.log("asd")
   },
-  // extraReducers: {  
-  //   [get_all_items.pending]: (state) => {
-  //   },
-  // }
+  },
 })
 
-export const { setLanguage } = appSlice.actions
+export const { setLanguage, setCategory } = appSlice.actions
 
 export default appSlice.reducer
 

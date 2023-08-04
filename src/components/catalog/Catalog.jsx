@@ -1,11 +1,42 @@
+import { useSelector } from "react-redux"
+import { useNavigate } from 'react-router-dom'
+
 import s from './Catalog.module.scss'
 
 import scoopy from './../../static/images/bikes/scoopy.png'
-import { useNavigate } from 'react-router-dom'
 
 export const Catalog = () => {
+    const language = useSelector((state) => state.app.language)
     const navigate = useNavigate()
-    console.log(scoopy.height)
+
+    function setLocale() {
+        const loctext = {}
+        if (language == "ru") {
+            loctext.head_title = "Мини скутеры"
+            loctext.t1 = "Клиент формирует запрос на аренду."
+            loctext.t2 = "Сервис в автоматическом режиме опрашивает ближайшие сервисы проката по наличию байка с нужными параметрами."
+            loctext.t3 = "Несколько сервисов принимают приглашение, подтверждая тем самым, что скутер  находится в наличии и готов к аренде."
+            loctext.t4 = "После того, как сервис проката подтвердил аренду, клиент получает предложение с фотографией и указанием технического состояния скутера. Указана цена исходя из всего срока аренды."
+            loctext.t5 = "В итоге клиент получает качественную подборку предложений под свои параметры."
+            loctext.t6 = "Оплата только после доставки клиенту."
+        } else if (language == "en") {
+            loctext.head_title = "Mini scooters"
+            loctext.t1 = "The client forms a rental request."
+            loctext.t2 = "The service automatically polls the nearest rental services based on the availability of a bike with the necessary parameters."
+            loctext.t3 = "Several services accept the invitation, thereby confirming that the scooter is available and ready for rent."
+            loctext.t4 = "After the rental service has confirmed the rental, the client receives an offer with a photo and an indication of the technical condition of the scooter. The price is based on the entire rental period."
+            loctext.t5 = "As a result, the client receives a high-quality selection of offers for their parameters."
+            loctext.t6 = "Payment is made only after delivery to the customer."
+        }
+        return loctext
+    }
+
+    const text = setLocale()
+
+
+
+
+
 
     return (
         <>
@@ -109,7 +140,7 @@ export const Catalog = () => {
 
             <div className={s.wrapper_inner}>
                 <div className={s.title}>
-                    <span>Год выпуска</span>
+                    <span>Цвет</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                         <path d="M11 3C6.584 3 3 6.584 3 11C3 15.416 6.584 19 11 19C15.416 19 19 15.416 19 11C19 6.584 15.416 3 11 3ZM11.8 16.6H10.2V15H11.8V16.6ZM13.456 10.4L12.736 11.136C12.16 11.72 11.8 12.2 11.8 13.4H10.2V13C10.2 12.12 10.56 11.32 11.136 10.736L12.128 9.728C12.424 9.44 12.6 9.04 12.6 8.6C12.6 7.72 11.88 7 11 7C10.12 7 9.4 7.72 9.4 8.6H7.8C7.8 6.832 9.232 5.4 11 5.4C12.768 5.4 14.2 6.832 14.2 8.6C14.2 9.304 13.912 9.944 13.456 10.4Z" fill="#B7B7B7" fill-opacity="0.7"/>
                     </svg>

@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { useSelector } from "react-redux"
+import { useNavigate } from 'react-router-dom'
 
 import s from './CatItem.module.scss'
 
-export const CatItem = ({dataset}) => {
+export const CatItem = ({dataset, type}) => {
     const language = useSelector((state) => state.app.language)
+
+    const navigate = useNavigate()
     const [num, setNum] = useState(0)
 
     function setLocale() {
@@ -43,9 +46,9 @@ export const CatItem = ({dataset}) => {
 
 
     return (
-        <div className={s.wrapper}>
+        <div className={s.wrapper} >
             <div className={s.image}>
-                <div className={s.arrows}>
+                <div className={s.arrows} onClick={() => NaN}>
                     <div className={s.arrow} onClick={() => setNum(decrement(num))}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M12.4446 14.8886L7.55569 9.99973L12.4446 5.11084" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -63,7 +66,7 @@ export const CatItem = ({dataset}) => {
                 <img src={dataset[num].img} alt="Bike" />
             </div>
 
-            <div className={s.info}>
+            <div className={s.info} onClick={() => navigate(`/catalog`)}>
                 <div className={s.title_price}>
                     <span>{text.title}</span>
                     <span>{text.price} {dataset[num].price}$</span>
