@@ -1,14 +1,27 @@
 import { useState } from 'react'
+import { useSelector } from "react-redux"
 
 import s from './CatItem.module.scss'
 
-import scoopy from './../../../static/images/bikes/scoopy.png'
-import vario from './../../../static/images/bikes/vario.png'
-import fazzio from './../../../static/images/bikes/fazzio.png'
-import lexi from './../../../static/images/bikes/lexi.png'
-
 export const CatItem = ({dataset}) => {
+    const language = useSelector((state) => state.app.language)
     const [num, setNum] = useState(0)
+
+    function setLocale() {
+        const loctext = {}
+        if (language == "ru") {
+            loctext.title = "Мини скутеры"
+            loctext.price = "от"
+            loctext.subtitle = "Для девушек / одиночных поездок"
+        } else if (language == "en") {
+            loctext.title = "Mini scooters"
+            loctext.price = "from"
+            loctext.subtitle = "For girls / single trips"
+        }
+        return loctext
+    }
+
+    const text = setLocale()
 
     function increment(number) {
         if (number == dataset.length - 1) {
@@ -19,7 +32,6 @@ export const CatItem = ({dataset}) => {
         }
     }
 
-
     function decrement(number) {
         if (number == 0) {
             number = dataset.length - 1
@@ -29,7 +41,7 @@ export const CatItem = ({dataset}) => {
         }
     }
 
-    // console.log(dataset)
+
     return (
         <div className={s.wrapper}>
             <div className={s.image}>
@@ -46,21 +58,18 @@ export const CatItem = ({dataset}) => {
                     </div>
                 </div>
                 <div className={s.bikes_swaiper}>
-                    {/* <div>Scoopy</div> */}
-                    {/* <div>Vario</div> */}
                     <div className={s.active}>{dataset[num].name}</div>
-                    {/* <div>Lexi</div> */}
                 </div>
                 <img src={dataset[num].img} alt="Bike" />
             </div>
 
             <div className={s.info}>
                 <div className={s.title_price}>
-                    <span>Мини скутеры</span>
-                    <span>от {dataset[num].price}$</span>
+                    <span>{text.title}</span>
+                    <span>{text.price} {dataset[num].price}$</span>
                 </div>
                 <div className={s.subtitle}>
-                    <span>Для девушек / одиночных поездок</span>
+                    <span>{text.subtitle}</span>
                 </div>
             </div>
 

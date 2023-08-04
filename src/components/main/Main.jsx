@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from "react-redux"
 import { Footer } from '../footer/Footer'
 import s from './Main.module.scss'
 import { CatItem } from './catalogItem/CatItem'
@@ -18,6 +19,7 @@ import xmax from './../../static/images/bikes/xmax.png'
 
 export const Main = () => {
     const navigate = useNavigate()
+    const language = useSelector((state) => state.app.language)
 
     const mini = [   
             {
@@ -74,11 +76,23 @@ export const Main = () => {
         },    
     ]
 
+    function setLocale() {
+        const loctext = {}
+        if (language == "ru") {
+            loctext.title = "Выберите тип скутера"
+        } else if (language == "en") {
+            loctext.title = "Choose the type of scooter"
+        }
+        return loctext
+    }
+
+    const text = setLocale()
+
     return (
         <div className={s.wrapper}
         //  onClick={() => navigate("/catalog")}
          >
-            <div className={s.title}>Выберите тип скутера</div>
+            <div className={s.title}>{text.title}</div>
             <div className={s.items}>
                 <CatItem dataset={mini}/>
                 <CatItem dataset={highways}/>

@@ -1,11 +1,28 @@
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useSelector } from "react-redux"
 
 import s from './Footer.module.scss'
 
 export const Footer = () => {
+    const language = useSelector((state) => state.app.language)
     const navigate = useNavigate()
     const location = useLocation()
 
+    function setLocale() {
+        const loctext = {}
+        if (language == "ru") {
+            loctext.catalog = "Каталог"
+            loctext.about = "О сервисе"
+            loctext.support = "Поддержка"
+        } else if (language == "en") {
+            loctext.catalog = "Catalog"
+            loctext.about = "About us"
+            loctext.support = "Support"
+        }
+        return loctext
+    }
+
+    const text = setLocale()
 
     return (
         <div className={s.wrapper}>
@@ -21,7 +38,7 @@ export const Footer = () => {
                         </svg>
                     </div>
 
-                    <p className={s.title}>Каталог</p>
+                    <p className={s.title}>{text.catalog}</p>
                 </div>
 
                 <div className={location.pathname == "/about" ? s.menu_item_active : s.menu_item} onClick={()=> navigate("/about")}>
@@ -33,7 +50,7 @@ export const Footer = () => {
                         </svg>
                     </div>
 
-                    <p className={s.title}>О сервисе</p>
+                    <p className={s.title}>{text.about}</p>
                 </div>
 
                 <div className={location.pathname == "/support" ? s.menu_item_active : s.menu_item} onClick={()=> navigate("/support")}>
@@ -45,7 +62,7 @@ export const Footer = () => {
 
                     </div>
 
-                    <p className={s.title}>Поддержка</p>
+                    <p className={s.title}>{text.support}</p>
                 </div>
             </div>
         </div>
