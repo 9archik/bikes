@@ -8,7 +8,7 @@ import logo_outer from '../../static/images/logo_outer.png'
 import logo_inner from '../../static/images/logo_inner.png'
 import logo from '../../static/images/Logo.svg'
 
-
+import logov from './../../static/video/logo.mp4'
 
 
   
@@ -22,7 +22,8 @@ export const First = () => {
     return (
         <div className={s.wrapper} onClick={() => navigate("/second")} >
             <div className={s.image_div}>
-                <img src={logo_outer} alt="Иконка загрузки" />
+                {/* <img src={logo_outer} alt="Иконка загрузки" /> */}
+                <video src={logov} autoPlay loop muted/>
             </div>
 
             <div className={s.title}>

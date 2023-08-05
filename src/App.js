@@ -36,6 +36,8 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/support" element={<Support />} />
     </Routes>
+
+    {/* Блок для асинхронной подгрузки фотографий байков */}
     <div className='asyncload'>
       <img src={scoopy} alt="" />
       <img src={vario} alt="" />

@@ -5,6 +5,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .image_div {
@@ -17,8 +19,9 @@
         width: 130px;
         position: relative;
     }
-    svg {
-        position: absolute;
+    video {
+        width: 100%;
+        max-width: 500px;
     }
 }
 
