@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
 
@@ -6,9 +8,17 @@ import logo_outer from '../../static/images/logo_outer.png'
 import logo_inner from '../../static/images/logo_inner.png'
 import logo from '../../static/images/Logo.svg'
 
+
+
+
+  
+
 export const First = () => {
     const navigate = useNavigate()
 
+    // useEffect(() => {
+    //     axios.get('./../../static/images/bikes/adv.png')
+    // }, [])
     return (
         <div className={s.wrapper} onClick={() => navigate("/second")} >
             <div className={s.image_div}>
@@ -19,6 +29,8 @@ export const First = () => {
                 <p>Платформа для аренды байков</p>
                 <p>Сервис с прозрачной системой выбора</p>
             </div>
+
+            
         </div>
     )
 }
