@@ -1,23 +1,44 @@
 import { useState } from 'react'
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from 'react-router-dom'
 
 import s from './CatItem.module.scss'
+import { setSelectedBike } from '../../../redux/appState/Dataset'
 
 export const CatItem = ({dataset, type}) => {
     const language = useSelector((state) => state.app.language)
-
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [num, setNum] = useState(0)
 
     function setLocale() {
         const loctext = {}
         if (language == "ru") {
-            loctext.title = "Мини скутеры"
+            switch (type) {
+                case 'mini':
+                    loctext.title = "Мини скутеры"
+                    break
+                case 'highways':
+                    loctext.title = "Шоссейные"
+                    break
+                case 'luxe':
+                    loctext.title = "Премиум"
+                    break
+            }
             loctext.price = "от"
             loctext.subtitle = "Для девушек / одиночных поездок"
         } else if (language == "en") {
-            loctext.title = "Mini scooters"
+            switch (type) {
+                case 'mini':
+                    loctext.title = "Mini scooters"
+                    break
+                case 'highways':
+                    loctext.title = "Highways"
+                    break
+                case 'luxe':
+                    loctext.title = "Premium"
+                    break
+            }
             loctext.price = "from"
             loctext.subtitle = "For girls / single trips"
         }
@@ -44,17 +65,44 @@ export const CatItem = ({dataset, type}) => {
         }
     }
 
+    function setState(){
+        dispatch(setSelectedBike(
+            {
+                type: type,
+                name: "",
+                date_at: "",
+                date_to: "",
+                color: "",
+                helmet_count: "",
+                options: {
+                  abs: false,
+                  keyless_access: false,
+                }
+            }
+        ))
+
+    }
+
 
     return (
-        <div className={s.wrapper} >
+        <div className={s.wrapper} onClick={() => {
+            setState()
+            navigate('/catalog')
+            }}>
             <div className={s.image}>
-                <div className={s.arrows} onClick={() => NaN}>
-                    <div className={s.arrow} onClick={() => setNum(decrement(num))}>
+                <div className={s.arrows}>
+                    <div className={s.arrow} onClick={(e) => {
+                        e.stopPropagation()
+                        setNum(decrement(num))
+                        }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M12.4446 14.8886L7.55569 9.99973L12.4446 5.11084" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>          
                     </div>
-                    <div className={s.arrow} onClick={() => setNum(increment(num))}>
+                    <div className={s.arrow} onClick={(e) => {
+                        e.stopPropagation()
+                        setNum(increment(num))
+                        }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
                             <path d="M7.97925 16.0413L13.0209 10.9997L7.97925 5.95801" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>        

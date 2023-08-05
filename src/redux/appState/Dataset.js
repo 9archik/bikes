@@ -72,6 +72,19 @@ const initialState = {
           price: 11,
       },    
   ]
+  },
+
+  selected_bike: {
+    type: "mini",
+    name: "",
+    date_at: "",
+    date_to: "",
+    color: "",
+    helmet_count: "",
+    options: {
+      abs: false,
+      keyless_access: false,
+    }
   }
 }
 
@@ -79,13 +92,13 @@ export const appSlice = createSlice({
   name: 'dataset',
   initialState,
   reducers: {
-    // setLanguage: (state, action) => {
-    //     state.language = action.payload
-    // },
+    setSelectedBike: (state, action) => {
+        state.selected_bike = action.payload
+    },
   },
 })
 
-export const {  } = appSlice.actions
+export const { setSelectedBike } = appSlice.actions
 
 export default appSlice.reducer
 
