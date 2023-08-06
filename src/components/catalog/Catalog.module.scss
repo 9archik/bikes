@@ -65,7 +65,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-
+    
     img {
         width: 100%;
         border-radius: 8px;
@@ -148,6 +148,7 @@
 
 
 
+
 .title {
     width: 100%;
     display: flex;
@@ -176,8 +177,12 @@
 
 .calendar {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+
+    .half {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 
     .calendar_item {
         display: flex;
@@ -210,8 +215,54 @@
                 font-weight: 400;
                 letter-spacing: -0.15px;
             }
+
+            .active_text {
+                color: #202020;
+            }
         }
+
+        .input_active {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 5px;
+            border: 1px solid #202020;
+            background: #FFF;
+
+            span {
+                color: #B7B7B7;
+                font-size: 15px;
+                font-weight: 400;
+                letter-spacing: -0.15px;
+            }
+
+            .active_text {
+                color: #202020;
+            }
+        }
+
+
     }
+    
+}
+
+.calendar_wrapper {
+    background-color: red;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 444px;
+    position: relative;
+    // padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.calendar_wrapper_none {
+    display: none;
 }
 
 @media screen and (max-width: 370px){
@@ -258,6 +309,7 @@
         border-radius: 5px;
         border: 1px solid #D5D5D5;
         background:  #FFF;
+        transition: 0.2s;
 
         &:first-child {
             margin-left: 0;
@@ -268,6 +320,7 @@
         border-radius: 5px;
         background: #54667A;
         color: white;
+        cursor: pointer;
     }
 }
 
@@ -319,8 +372,6 @@
         color: white;
     }
 }
-
-
 
 
 .footer {

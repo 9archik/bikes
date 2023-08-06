@@ -16,9 +16,6 @@ import logov from './../../static/video/logo.mp4'
 export const First = () => {
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     axios.get('./../../static/images/bikes/adv.png')
-    // }, [])
     return (
         <div className={s.wrapper} onClick={() => navigate("/second")} >
             <div className={s.image_div}>

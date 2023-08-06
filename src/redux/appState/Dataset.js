@@ -79,6 +79,7 @@ const initialState = {
     name: "",
     date_at: "",
     date_to: "",
+    release: "",
     color: "",
     helmet_count: "",
     options: {
@@ -95,10 +96,34 @@ export const appSlice = createSlice({
     setSelectedBike: (state, action) => {
         state.selected_bike = action.payload
     },
+    setName: (state, action) => {
+      state.selected_bike.name = action.payload
+    },
+    setDateAt: (state, action) => {
+      state.selected_bike.date_at = action.payload
+    },
+    setDateTo: (state, action) => {
+      state.selected_bike.date_to = action.payload
+    },
+    setRelease: (state, action) => {
+      state.selected_bike.release = action.payload
+    },
+    setColor: (state, action) => {
+      state.selected_bike.color = action.payload
+    },
+    setHelmet: (state, action) => {
+      state.selected_bike.helmet_count = action.payload
+    },
+    setAbs: (state, action) => {
+      state.selected_bike.options.abs = action.payload
+    },
+    setKeyless: (state, action) => {
+      state.selected_bike.options.keyless_access = action.payload
+    },
   },
 })
 
-export const { setSelectedBike } = appSlice.actions
+export const { setSelectedBike, setName, setDateAt, setDateTo, setRelease, setColor, setHelmet, setAbs, setKeyless } = appSlice.actions
 
 export default appSlice.reducer
 
