@@ -9,10 +9,8 @@
 .wisible_part {
     position: fixed;
     bottom: 0px;
-    // left: 0;
 
     width: 100%;
-    // max-width: 500px;
     margin: 0 auto;
     height: 49px;
 
@@ -27,6 +25,8 @@
 
     z-index: 1000;
 
+    
+
     .menu_item {
         width: 75px;
         height: 49px;
@@ -37,7 +37,7 @@
         margin: 0 1px;
         color: #B7B7B7;
         stroke: #B7B7B7;
-        
+
         .image {
             height: 28px;
             width: 28px;
@@ -63,11 +63,12 @@
         margin: 0 1px;
         color: #202020;
         stroke: #202020;
-        
+
         .image {
             height: 28px;
             width: 28px;
             margin-bottom: -3px;
+
         }
 
         .title {

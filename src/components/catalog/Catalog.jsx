@@ -15,6 +15,7 @@ export const Catalog = () => {
     const dataset = useSelector((state) => state.dataset)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [question, setQuestion] = useState(false)
     const [num, setNum] = useState(0)
     const [calendarView1, setCalendarView1] = useState(false)
     const [isSetCalendar1, setIsSetCalendar1] = useState(false)
@@ -121,16 +122,15 @@ export const Catalog = () => {
 
     function decrement(number) {
         if (number == 0) {
-            number = dataset.length - 1
+            number = current_dataset.length - 1
             return number
         } else {
             return number - 1
         }
     }
 
-    dispatch(setName(current_dataset[num].name))
 
-    console.log(typeof(date_at))
+    dispatch(setName(current_dataset[num].name))
 
 
     return (
@@ -146,7 +146,7 @@ export const Catalog = () => {
         </div>
 
 
-        <div className={s.wrapper} >
+        <div className={s.wrapper} onClick={() => setQuestion(false)}>
             
             <div className={s.wrapper_inner}>
                 <div className={s.image}>
@@ -185,11 +185,15 @@ export const Catalog = () => {
             </div>
 
             <div className={s.wrapper_inner}>
-                <div className={s.title}>
+                <div className={s.title_with_question}>
                     <span>{text.period}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" onClick={(e) => {
+                        e.stopPropagation()
+                        setQuestion(!question)
+                        }}>
                         <path d="M11 3C6.584 3 3 6.584 3 11C3 15.416 6.584 19 11 19C15.416 19 19 15.416 19 11C19 6.584 15.416 3 11 3ZM11.8 16.6H10.2V15H11.8V16.6ZM13.456 10.4L12.736 11.136C12.16 11.72 11.8 12.2 11.8 13.4H10.2V13C10.2 12.12 10.56 11.32 11.136 10.736L12.128 9.728C12.424 9.44 12.6 9.04 12.6 8.6C12.6 7.72 11.88 7 11 7C10.12 7 9.4 7.72 9.4 8.6H7.8C7.8 6.832 9.232 5.4 11 5.4C12.768 5.4 14.2 6.832 14.2 8.6C14.2 9.304 13.912 9.944 13.456 10.4Z" fill="#B7B7B7" fill-opacity="0.7"/>
                     </svg>
+                    <div className={question ? s.question : s.question_none}><span>Обратите внимание!</span> Чем дольше срок, тем ниже цена. Если вы планируете арендовать байк на длительный срок, но не определились с точными датами, рекомендуем указать срок аренды на один месяц</div>
                 </div>
 
                 <div className={s.calendar}>
@@ -245,9 +249,6 @@ export const Catalog = () => {
             <div className={s.wrapper_inner}>
                 <div className={s.title}>
                     <span>{text.release}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                        <path d="M11 3C6.584 3 3 6.584 3 11C3 15.416 6.584 19 11 19C15.416 19 19 15.416 19 11C19 6.584 15.416 3 11 3ZM11.8 16.6H10.2V15H11.8V16.6ZM13.456 10.4L12.736 11.136C12.16 11.72 11.8 12.2 11.8 13.4H10.2V13C10.2 12.12 10.56 11.32 11.136 10.736L12.128 9.728C12.424 9.44 12.6 9.04 12.6 8.6C12.6 7.72 11.88 7 11 7C10.12 7 9.4 7.72 9.4 8.6H7.8C7.8 6.832 9.232 5.4 11 5.4C12.768 5.4 14.2 6.832 14.2 8.6C14.2 9.304 13.912 9.944 13.456 10.4Z" fill="#B7B7B7" fill-opacity="0.7"/>
-                    </svg>
                 </div>
 
                 <div className={s.items_flex_start}>
@@ -261,9 +262,6 @@ export const Catalog = () => {
             <div className={s.wrapper_inner}>
                 <div className={s.title}>
                     <span>{text.color}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                        <path d="M11 3C6.584 3 3 6.584 3 11C3 15.416 6.584 19 11 19C15.416 19 19 15.416 19 11C19 6.584 15.416 3 11 3ZM11.8 16.6H10.2V15H11.8V16.6ZM13.456 10.4L12.736 11.136C12.16 11.72 11.8 12.2 11.8 13.4H10.2V13C10.2 12.12 10.56 11.32 11.136 10.736L12.128 9.728C12.424 9.44 12.6 9.04 12.6 8.6C12.6 7.72 11.88 7 11 7C10.12 7 9.4 7.72 9.4 8.6H7.8C7.8 6.832 9.232 5.4 11 5.4C12.768 5.4 14.2 6.832 14.2 8.6C14.2 9.304 13.912 9.944 13.456 10.4Z" fill="#B7B7B7" fill-opacity="0.7"/>
-                    </svg>
                 </div>
                 
 
@@ -283,9 +281,6 @@ export const Catalog = () => {
             <div className={s.wrapper_inner}>
                 <div className={s.title}>
                     <span>{text.count_helmet}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                        <path d="M11 3C6.584 3 3 6.584 3 11C3 15.416 6.584 19 11 19C15.416 19 19 15.416 19 11C19 6.584 15.416 3 11 3ZM11.8 16.6H10.2V15H11.8V16.6ZM13.456 10.4L12.736 11.136C12.16 11.72 11.8 12.2 11.8 13.4H10.2V13C10.2 12.12 10.56 11.32 11.136 10.736L12.128 9.728C12.424 9.44 12.6 9.04 12.6 8.6C12.6 7.72 11.88 7 11 7C10.12 7 9.4 7.72 9.4 8.6H7.8C7.8 6.832 9.232 5.4 11 5.4C12.768 5.4 14.2 6.832 14.2 8.6C14.2 9.304 13.912 9.944 13.456 10.4Z" fill="#B7B7B7" fill-opacity="0.7"/>
-                    </svg>
                 </div>
 
                 <div className={s.items_flex_start}>
@@ -298,9 +293,6 @@ export const Catalog = () => {
             <div className={s.wrapper_inner}>
                 <div className={s.title}>
                     <span>{text.additional_options}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                        <path d="M11 3C6.584 3 3 6.584 3 11C3 15.416 6.584 19 11 19C15.416 19 19 15.416 19 11C19 6.584 15.416 3 11 3ZM11.8 16.6H10.2V15H11.8V16.6ZM13.456 10.4L12.736 11.136C12.16 11.72 11.8 12.2 11.8 13.4H10.2V13C10.2 12.12 10.56 11.32 11.136 10.736L12.128 9.728C12.424 9.44 12.6 9.04 12.6 8.6C12.6 7.72 11.88 7 11 7C10.12 7 9.4 7.72 9.4 8.6H7.8C7.8 6.832 9.232 5.4 11 5.4C12.768 5.4 14.2 6.832 14.2 8.6C14.2 9.304 13.912 9.944 13.456 10.4Z" fill="#B7B7B7" fill-opacity="0.7"/>
-                    </svg>
                 </div>
                 
 
@@ -313,7 +305,7 @@ export const Catalog = () => {
 
         <div className={s.footer}>
             <div className={s.footer_inner} onClick={() => navigate("/wait")}>
-                <div>{text.send_location}</div>
+                <div className={dataset.can_send_location ? "" : s.disactive}>{text.send_location}</div>
             </div>
         </div>
         </>

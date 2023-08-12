@@ -86,6 +86,18 @@ const initialState = {
       abs: false,
       keyless_access: false,
     }
+  },
+  is_set_date_at: false,
+  is_set_date_to: false,
+
+  can_send_location: false,
+}
+
+function CheckCanSendLocation(prop, is_set_day_at, is_set_day_to) {
+  if (prop.name !== "" && is_set_day_at == true  && is_set_day_to == true && prop.release !== "" && prop.color !== "" && prop.helmet_count !== "") {
+    return true
+  } else {
+    return false
   }
 }
 
@@ -95,30 +107,43 @@ export const appSlice = createSlice({
   reducers: {
     setSelectedBike: (state, action) => {
         state.selected_bike = action.payload
+        state.is_set_date_at = false
+        state.is_set_date_to = false
+        state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
     setName: (state, action) => {
       state.selected_bike.name = action.payload
+      state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
     setDateAt: (state, action) => {
       state.selected_bike.date_at = action.payload
+      state.is_set_date_at = true
+      state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
     setDateTo: (state, action) => {
       state.selected_bike.date_to = action.payload
+      state.is_set_date_to = true
+      state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
     setRelease: (state, action) => {
       state.selected_bike.release = action.payload
+      state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
     setColor: (state, action) => {
       state.selected_bike.color = action.payload
+      state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
     setHelmet: (state, action) => {
       state.selected_bike.helmet_count = action.payload
+      state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
     setAbs: (state, action) => {
       state.selected_bike.options.abs = action.payload
+      state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
     setKeyless: (state, action) => {
       state.selected_bike.options.keyless_access = action.payload
+      state.can_send_location = CheckCanSendLocation(state.selected_bike, state.is_set_date_at, state.is_set_date_to)
     },
   },
 })
